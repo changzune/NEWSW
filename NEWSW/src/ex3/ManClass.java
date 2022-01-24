@@ -2,16 +2,17 @@ package ex3;
 
 public class ManClass {
 	
+	//인스턴스
 	private int age;
 	private int heigjt;
 	private int weight;
 	private String phoneNum;
-	
+	// 디폴트 생성
 	public ManClass() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+	//파라미터
 	public ManClass(int age, int heigjt , int weight, String phoneNum) {
 		this.age = age;
 		this.heigjt = heigjt;
