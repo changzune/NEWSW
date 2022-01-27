@@ -1,4 +1,4 @@
-package ex05;
+package ex5;
 
 public class PI {
 	
@@ -7,5 +7,5 @@ public class PI {
 	public PI() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
 }

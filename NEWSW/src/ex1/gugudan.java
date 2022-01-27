@@ -1,4 +1,4 @@
-package ex01;
+package ex1;
 
 public class gugudan {
 	public static void main(String[] args) {
