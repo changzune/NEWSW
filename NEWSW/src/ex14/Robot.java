@@ -1,6 +1,6 @@
 package ex14;
 
-public class Robot {
+public abstract class Robot {
 
 	public Robot() {
 		// TODO Auto-generated constructor stub
@@ -20,5 +20,9 @@ public class Robot {
 		System.out.println("SuperRobot 입니다. 외형은 팔,다리,몸통,머리가 있습니다.");
 
 	}
+
 	
+	public abstract void actionFly();
+	public abstract void actionMisail();
+	public abstract void actionKnife();
 }
