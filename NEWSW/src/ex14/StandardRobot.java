@@ -1,27 +1,13 @@
 package ex14;
 
+import ex15.Iknife;
+import ex15.iFly;
+import ex15.iMisail;
+
 public class StandardRobot extends Robot {
 	public StandardRobot() {
 		// TODO Auto-generated constructor stub
 	}
-
-	@Override
-	public void actionFly() {
-		System.out.println("날 수 없습니다.");
-
-	}
-	@Override
-	public void actionMisail() {
-		System.out.println("미사일을 쏠 수 있습니다.");
-
-	}
-	@Override
-	public void actionKnife() {
-		System.out.println("목검이 있습니다.");
-
-	}
 	
 
-	
-	
 }

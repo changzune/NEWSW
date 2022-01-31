@@ -1,7 +1,16 @@
 package ex14;
 
+import ex15.Iknife;
+import ex15.iFly;
+import ex15.iMisail;
+
 public abstract class Robot {
 
+	iFly fly;
+	iMisail misail;
+	Iknife knife;
+	
+	
 	public Robot() {
 		// TODO Auto-generated constructor stub
 	}
@@ -21,8 +30,18 @@ public abstract class Robot {
 
 	}
 
+
+	public void setFly(iFly fly) {
+		this.fly = fly;
+	}
 	
-	public abstract void actionFly();
-	public abstract void actionMisail();
-	public abstract void actionKnife();
+	public void setMisail(iMisail misail) {
+		this.misail = misail;
+	}
+	
+	public void setKnife(Iknife knife) {
+		this.knife = knife;
+	}
+	
+	
 }

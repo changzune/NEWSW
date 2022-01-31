@@ -1,28 +1,16 @@
 package ex14;
 
+import ex15.FlyYes;
+import ex15.Iknife;
+import ex15.KnifeLazer;
+import ex15.MisailYes;
+import ex15.iFly;
+import ex15.iMisail;
+
 public class SuperRobot extends Robot {
 	
 	public SuperRobot() {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void actionFly() {
-		System.out.println("날수 있습니다.");
-		
-	}
-
-	@Override
-	public void actionMisail() {
-		System.out.println("미사일 쏠 수 있습니다.");
-		
-	}
-
-	@Override
-	public void actionKnife() {
-		System.out.println("레이저검이 있습니다.");
-		
-	}
-
-	
 }
