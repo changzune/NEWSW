@@ -25,11 +25,7 @@ public abstract class Robot {
 		System.out.println("달릴 수 있습니다.");
 
 	}
-	public void shape() {
-		System.out.println("SuperRobot 입니다. 외형은 팔,다리,몸통,머리가 있습니다.");
-
-	}
-
+	public abstract void shape();
 
 	public void setFly(iFly fly) {
 		this.fly = fly;
@@ -43,5 +39,18 @@ public abstract class Robot {
 		this.knife = knife;
 	}
 	
+	public void actionFly() {
+		this.fly.fly();
+	}
+	
+	public void actionKnife() {
+		this.knife.knife();
+	}
+	
+	public void actionMisail() {
+		this.misail.misail();
+	}
+	
+
 	
 }
