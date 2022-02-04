@@ -1,6 +1,6 @@
 package ex21;
 
-public class ThreadTest implements Runnable {
+public class ThreadTest implements Runnable{
 
 	@Override
 	public void run() {
