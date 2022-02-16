@@ -37,7 +37,6 @@ public class MemberDAO {
 	public ArrayList<MemberDTO> memberSelect() {
 		
 		ArrayList<MemberDTO> dtos = new ArrayList<MemberDTO>();
-		
 		Connection con =null;
 		Statement stmt = null;
 		ResultSet rs = null;
