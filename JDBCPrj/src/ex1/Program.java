@@ -1,5 +1,6 @@
 package ex1;
 
+import java.util.Date;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -18,17 +19,29 @@ public class Program {
 		Statement st = con.createStatement();
 		ResultSet rs = st.executeQuery(sql);
 		
-		if(rs.next()) {
+		//if(rs.next()) {
+		//String title = rs.getString("title");
+		//System.out.println(title);
+		//}else 
+			
+		while(rs.next()) {
+		int id = rs.getInt("ID");
 		String title = rs.getString("title");
-		System.out.println(title);
-		}else 
+		String Writerld = rs.getString("WRITER_ID");
+		Date regDate = rs.getDate("REGDATE");
+		String content = rs.getString("CONTENT");
+		int hit = rs.getInt("hit");
+		
+		System.out.printf(" id:%d, title:%s, Writerld:%s, regDate:%s, content:%s, hit:%d|n",
+							id, title, Writerld, regDate,content, hit);
+
+		}
 			
-			
+
 		rs.close();
 		st.close();
 		con.close();
 		
-
 	}
 
 }
