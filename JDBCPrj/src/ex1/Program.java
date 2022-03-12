@@ -12,7 +12,7 @@ public class Program {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		
 		String url = "jdbc:oracle:thin:@localhost:1521:XE";
-		String sql = "SELECT * FROM NOTICE";
+		String sql = "SELECT * FROM NOTICE where hit >10 ";
 		
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url,"scott","tiger");
@@ -32,7 +32,8 @@ public class Program {
 		String content = rs.getString("CONTENT");
 		int hit = rs.getInt("hit");
 		
-		System.out.printf(" id:%d, title:%s, Writerld:%s, regDate:%s, content:%s, hit:%d|n",
+		
+		System.out.printf(" id:%d, title:%s, Writerld:%s, regDate:%s, content:%s, hit:%d\n",
 							id, title, Writerld, regDate,content, hit);
 
 		}
