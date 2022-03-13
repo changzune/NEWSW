@@ -31,8 +31,7 @@ public class Program {
 		Date regDate = rs.getDate("REGDATE");
 		String content = rs.getString("CONTENT");
 		int hit = rs.getInt("hit");
-		
-		
+
 		System.out.printf(" id:%d, title:%s, Writerld:%s, regDate:%s, content:%s, hit:%d\n",
 							id, title, Writerld, regDate,content, hit);
 
