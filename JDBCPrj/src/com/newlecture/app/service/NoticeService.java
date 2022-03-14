@@ -3,7 +3,9 @@ package com.newlecture.app.service;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +14,7 @@ import com.newlecture.app.entity.Notice;
 
 //목록을 반환
 public class NoticeService {
-	public List<Notice> getList(){
+	public List<Notice> getList() throws ClassNotFoundException, SQLException{
 		
 		String url = "jdbc:oracle:thin:@localhost:1521:XE";
 		String sql = "SELECT * FROM NOTICE where hit >10 ";
@@ -27,6 +29,8 @@ public class NoticeService {
 		//System.out.println(title);
 		//}else 
 			
+		List<Notice> list = new ArrayList<Notice>();
+		
 		while(rs.next()) {
 		int id = rs.getInt("ID");
 		String title = rs.getString("title");
@@ -35,6 +39,7 @@ public class NoticeService {
 		String content = rs.getString("CONTENT");
 		int hit = rs.getInt("hit");
 		
+		
 		Notice notice = new Notice(
 				id,
 				title,
@@ -42,15 +47,25 @@ public class NoticeService {
 				regDate,
 				content,
 				hit
-				
 				);
-		
+			list.add(notice);
 
 		System.out.printf(" id:%d, title:%s, Writerld:%s, regDate:%s, content:%s, hit:%d\n",
 							id, title, Writerld, regDate,content, hit);
+		}
 		
-		return ?;
+		
+		rs.close();
+		st.close();
+		con.close();
+		
+		
+		return list;
+		
+	
+		
 		
 	}
+
+	}
 	
-}
