@@ -5,7 +5,13 @@ public class Calculator {
 	
 	}
 
-	public static int add(int x, int y) {
+	public static int add(int x, int y) throws 천을_넘는_예외 {
+		
+		int result = x + y;
+		if(result > 1000)
+			throw new 천을_넘는_예외();
+			
+		
 		return x+y;
 		
 	}
