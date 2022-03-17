@@ -10,19 +10,28 @@ public class Notice {
 	private Date regDate;
 	private String content;
 	private int hit;
+	private String files;
 	
 	public Notice() {
 		
 	}
 	
-	public Notice(int id, String title, String writerld, Date regDate, String content, int hit) {
+
+
+
+
+	public Notice(int id, String title, String writerld, Date regDate, String content, int hit, String files) {
+		super();
 		this.id = id;
 		this.title = title;
-		this.Writerld = writerld;
+		Writerld = writerld;
 		this.regDate = regDate;
 		this.content = content;
 		this.hit = hit;
+		this.files = files;
 	}
+
+
 
 
 
@@ -61,6 +70,14 @@ public class Notice {
 	}
 	public void setHit(int hit) {
 		this.hit = hit;
+	}
+
+	public String getFiles() {
+		return files;
+	}
+
+	public void setFiles(String files) {
+		this.files = files;
 	}
 	
 	

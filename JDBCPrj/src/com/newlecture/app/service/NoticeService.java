@@ -2,6 +2,7 @@ package com.newlecture.app.service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -38,6 +39,8 @@ public class NoticeService {
 		Date regDate = rs.getDate("REGDATE");
 		String content = rs.getString("CONTENT");
 		int hit = rs.getInt("hit");
+		String files = rs.getString("FILES");
+		
 		
 		
 		Notice notice = new Notice(
@@ -46,7 +49,8 @@ public class NoticeService {
 				Writerld,
 				regDate,
 				content,
-				hit
+				hit,
+				files
 				);
 			list.add(notice);
 
@@ -67,5 +71,48 @@ public class NoticeService {
 		
 	}
 
+	
+	public int insert(Notice notice) throws SQLException, ClassNotFoundException {
+		String title= notice.getTitle();
+		String writerId = notice.getWriterld();
+		String content = notice.getContent();	
+		
+		
+		
+		String url = "jdbc:oracle:thin:@localhost:1521:XE";
+		String sql = "INSERT INTO NOTICE ( " +
+				" title," +
+				" writer_id," +
+				" content," +
+				" files"	+
+				") VALUES (?,?,?,?)";
+				
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url,"scott","tiger");
+		//Statement st = con.createStatement();
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, title);
+		st.setString(2, writerId);
+		st.setString(3, content);
+		st.setString(4, files);
+
+		
+		int result = st.executeUpdate();
+		System.out.println(result);
+	
+		st.close();
+		con.close();
+		return result;
+	}
+	
+	public int update(Notice notice) {
+		return 0;
+	}
+	
+	public int delete(int id) {
+		return 0;
+	}
+	
 	}
 	
