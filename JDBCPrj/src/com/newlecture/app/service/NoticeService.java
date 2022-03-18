@@ -76,6 +76,7 @@ public class NoticeService {
 		String title= notice.getTitle();
 		String writerId = notice.getWriterld();
 		String content = notice.getContent();	
+		String files = notice.getFiles();
 		
 		
 		
