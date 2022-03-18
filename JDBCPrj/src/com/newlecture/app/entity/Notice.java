@@ -16,10 +16,6 @@ public class Notice {
 		
 	}
 	
-
-
-
-
 	public Notice(int id, String title, String writerld, Date regDate, String content, int hit, String files) {
 		super();
 		this.id = id;
