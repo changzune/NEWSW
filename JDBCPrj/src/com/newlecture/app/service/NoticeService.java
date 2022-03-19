@@ -78,8 +78,6 @@ public class NoticeService {
 		String content = notice.getContent();	
 		String files = notice.getFiles();
 		
-		
-		
 		String url = "jdbc:oracle:thin:@localhost:1521:XE";
 		String sql = "INSERT INTO NOTICE ( " +
 				" title," +
@@ -107,8 +105,37 @@ public class NoticeService {
 		return result;
 	}
 	
-	public int update(Notice notice) {
-		return 0;
+	public int update(Notice notice) throws ClassNotFoundException, SQLException {
+	
+		String title= notice.getTitle();
+		String content = "hahaha3";
+		String files = "";
+		int id = 1;
+		
+		String url = "jdbc:oracle:thin:@localhost:1521:XE";
+		String sql = " update notice " +
+				" set" +
+				" title =?," +
+				" content= ?," +
+				" files=?" +
+				"where id =?";
+				
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url,"scott","tiger");
+		//Statement st = con.createStatement();
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, title);
+		st.setString(2, content);
+		st.setString(3, files);
+		st.setInt(4, id);
+
+		
+		int result = st.executeUpdate();
+		System.out.println(result);
+	
+		st.close();
+		con.close();
 	}
 	
 	public int delete(int id) {
