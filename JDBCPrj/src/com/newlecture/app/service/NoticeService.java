@@ -108,9 +108,9 @@ public class NoticeService {
 	public int update(Notice notice) throws ClassNotFoundException, SQLException {
 	
 		String title= notice.getTitle();
-		String content = "hahaha3";
-		String files = "";
-		int id = 1;
+		String content = notice.getContent();
+		String files = notice.getFiles();
+		int id = notice.getId();
 		
 		String url = "jdbc:oracle:thin:@localhost:1521:XE";
 		String sql = " update notice " +
@@ -132,13 +132,38 @@ public class NoticeService {
 
 		
 		int result = st.executeUpdate();
-		System.out.println(result);
+	
 	
 		st.close();
 		con.close();
+		
+		return 0;
 	}
 	
-	public int delete(int id) {
+	public int delete(int id) throws ClassNotFoundException, SQLException {
+		String title="TEST3";
+		String content = "hahaha3";
+		String files = "";
+		
+		
+		
+		String url = "jdbc:oracle:thin:@localhost:1521:XE";
+		String sql = "delete notice where id =?";
+				
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url,"scott","tiger");
+		//Statement st = con.createStatement();
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, id);
+
+		
+		int result = st.executeUpdate();
+	
+		st.close();
+		con.close();
+		
+		
 		return 0;
 	}
 	
