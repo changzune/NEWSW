@@ -19,7 +19,7 @@ public class NoticeService {
 	private String url = "jdbc:oracle:thin:@localhost:1521:XE";
 	private String uid ="scott";
 	private String pwd ="tiger";
-	
+	private String driver = "oracle.jdbc.driver.OracleDriver";
 	
 	
 	public List<Notice> getList() throws ClassNotFoundException, SQLException{
@@ -27,7 +27,7 @@ public class NoticeService {
 		
 		String sql = "SELECT * FROM NOTICE";
 		
-		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url,uid,pwd);
 		Statement st = con.createStatement();
 		ResultSet rs = st.executeQuery(sql);
@@ -85,7 +85,7 @@ public class NoticeService {
 		String content = notice.getContent();	
 		String files = notice.getFiles();
 		
-		String url = "jdbc:oracle:thin:@localhost:1521:XE";
+		
 		String sql = "INSERT INTO NOTICE ( " +
 				" title," +
 				" writer_id," +
@@ -94,8 +94,8 @@ public class NoticeService {
 				") VALUES (?,?,?,?)";
 				
 		
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection con = DriverManager.getConnection(url,"scott","tiger");
+		Class.forName(driver);
+		Connection con = DriverManager.getConnection(url,uid,pwd);
 		//Statement st = con.createStatement();
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, title);
@@ -119,7 +119,7 @@ public class NoticeService {
 		String files = notice.getFiles();
 		int id = notice.getId();
 		
-		String url = "jdbc:oracle:thin:@localhost:1521:XE";
+		
 		String sql = " update notice " +
 				" set" +
 				" title =?," +
@@ -128,8 +128,8 @@ public class NoticeService {
 				"where id =?";
 				
 		
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection con = DriverManager.getConnection(url,"scott","tiger");
+		Class.forName(driver);
+		Connection con = DriverManager.getConnection(url,uid,pwd);
 		//Statement st = con.createStatement();
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, title);
@@ -154,12 +154,12 @@ public class NoticeService {
 		
 		
 		
-		String url = "jdbc:oracle:thin:@localhost:1521:XE";
+		
 		String sql = "delete notice where id =?";
 				
 		
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection con = DriverManager.getConnection(url,"scott","tiger");
+		Class.forName(driver);
+		Connection con = DriverManager.getConnection(url,uid,pwd);
 		//Statement st = con.createStatement();
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, id);
