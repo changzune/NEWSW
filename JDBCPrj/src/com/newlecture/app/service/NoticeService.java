@@ -164,7 +164,7 @@ public class NoticeService {
 		con.close();
 		
 		
-		return 0;
+		return result;
 	}
 	
 	}
