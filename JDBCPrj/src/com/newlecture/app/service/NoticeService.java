@@ -15,10 +15,17 @@ import com.newlecture.app.entity.Notice;
 
 //목록을 반환
 public class NoticeService {
+	
+	private String url = "jdbc:oracle:thin:@localhost:1521:XE";
+	private String uid ="scott";
+	private String pwd ="tiger";
+	
+	
+	
 	public List<Notice> getList() throws ClassNotFoundException, SQLException{
 		
-		String url = "jdbc:oracle:thin:@localhost:1521:XE";
-		String sql = "SELECT * FROM NOTICE where hit >10 ";
+		
+		String sql = "SELECT * FROM NOTICE";
 		
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url,"scott","tiger");
@@ -137,7 +144,7 @@ public class NoticeService {
 		st.close();
 		con.close();
 		
-		return 0;
+		return result;
 	}
 	
 	public int delete(int id) throws ClassNotFoundException, SQLException {
