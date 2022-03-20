@@ -28,7 +28,7 @@ public class NoticeService {
 		String sql = "SELECT * FROM NOTICE";
 		
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection con = DriverManager.getConnection(url,"scott","tiger");
+		Connection con = DriverManager.getConnection(url,uid,pwd);
 		Statement st = con.createStatement();
 		ResultSet rs = st.executeQuery(sql);
 		
