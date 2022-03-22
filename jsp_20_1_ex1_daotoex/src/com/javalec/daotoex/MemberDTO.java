@@ -2,7 +2,7 @@ package com.javalec.daotoex;
 
 public class MemberDTO {
 
-	private String name;//여기에 저장
+	private String name;
 	private String id;
 	private String pw;
 	private String phone1;
@@ -11,7 +11,7 @@ public class MemberDTO {
 	private String gender;
 	
 	public MemberDTO(String name, String id, String pw, String phone1, String phone2, String phone3, String gender) {
-		this.name = name;//위에 다시 저장
+		this.name = name;
 		this.id = id;
 		this.pw = pw;
 		this.phone1 = phone1;

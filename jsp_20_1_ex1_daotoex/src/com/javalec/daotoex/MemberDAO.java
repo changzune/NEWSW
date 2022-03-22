@@ -42,7 +42,6 @@ public class MemberDAO {
 				String phone2 = rs.getString("phone2");
 				String phone3 = rs.getString("phone3");
 				String gender = rs.getString("gender");
-				//다 얻어오는 과정.
 				
 				MemberDTO dto = new MemberDTO(name, id, pw, phone1, phone2, phone3, gender);
 				dtos.add(dto);
