@@ -9,6 +9,7 @@ public class MemberDTO {
 	private String phone2;
 	private String phone3;
 	private String gender;
+	//
 	
 	public MemberDTO(String name, String id, String pw, String phone1, String phone2, String phone3, String gender) {
 		this.name = name;
