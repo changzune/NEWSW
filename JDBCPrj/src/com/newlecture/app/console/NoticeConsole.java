@@ -28,5 +28,11 @@ public class NoticeConsole {
 	}
 
 
+	public void printNoticeList() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 
 }
